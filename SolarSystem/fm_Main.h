@@ -49,6 +49,18 @@ namespace SolarSystem {
 	private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
 	private: System::Windows::Forms::StatusStrip^  SS_MainDisplay;
 	private: System::Windows::Forms::ToolStripStatusLabel^  SL_CursorPosition;
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Name;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Mass;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -76,6 +88,7 @@ namespace SolarSystem {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(fm_Main::typeid));
 			this->TC_Main = (gcnew System::Windows::Forms::TabControl());
 			this->TS_Settings = (gcnew System::Windows::Forms::TabPage());
 			this->TS_Display = (gcnew System::Windows::Forms::TabPage());
@@ -86,11 +99,16 @@ namespace SolarSystem {
 			this->MS_Main = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Input_Name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Input_Mass = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TC_Main->SuspendLayout();
+			this->TS_Settings->SuspendLayout();
 			this->TS_Display->SuspendLayout();
 			this->SS_MainDisplay->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_Display))->BeginInit();
 			this->MS_Main->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// TC_Main
@@ -107,16 +125,20 @@ namespace SolarSystem {
 			// 
 			// TS_Settings
 			// 
+			this->TS_Settings->BackColor = System::Drawing::SystemColors::Control;
+			this->TS_Settings->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->TS_Settings->Controls->Add(this->dataGridView1);
 			this->TS_Settings->Location = System::Drawing::Point(4, 22);
 			this->TS_Settings->Name = L"TS_Settings";
 			this->TS_Settings->Padding = System::Windows::Forms::Padding(3);
 			this->TS_Settings->Size = System::Drawing::Size(776, 511);
 			this->TS_Settings->TabIndex = 0;
 			this->TS_Settings->Text = L"Settings";
-			this->TS_Settings->UseVisualStyleBackColor = true;
 			// 
 			// TS_Display
 			// 
+			this->TS_Display->BackColor = System::Drawing::SystemColors::Control;
+			this->TS_Display->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->TS_Display->Controls->Add(this->SS_MainDisplay);
 			this->TS_Display->Controls->Add(this->PB_Display);
 			this->TS_Display->Location = System::Drawing::Point(4, 22);
@@ -125,14 +147,13 @@ namespace SolarSystem {
 			this->TS_Display->Size = System::Drawing::Size(776, 511);
 			this->TS_Display->TabIndex = 1;
 			this->TS_Display->Text = L"Display";
-			this->TS_Display->UseVisualStyleBackColor = true;
 			// 
 			// SS_MainDisplay
 			// 
 			this->SS_MainDisplay->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->SL_CursorPosition });
-			this->SS_MainDisplay->Location = System::Drawing::Point(3, 486);
+			this->SS_MainDisplay->Location = System::Drawing::Point(3, 484);
 			this->SS_MainDisplay->Name = L"SS_MainDisplay";
-			this->SS_MainDisplay->Size = System::Drawing::Size(770, 22);
+			this->SS_MainDisplay->Size = System::Drawing::Size(768, 22);
 			this->SS_MainDisplay->TabIndex = 4;
 			this->SS_MainDisplay->Text = L"SS_MainDisplay";
 			// 
@@ -150,19 +171,20 @@ namespace SolarSystem {
 			this->PB_Display->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PB_Display->Location = System::Drawing::Point(3, 3);
 			this->PB_Display->Name = L"PB_Display";
-			this->PB_Display->Size = System::Drawing::Size(770, 505);
+			this->PB_Display->Size = System::Drawing::Size(768, 503);
 			this->PB_Display->TabIndex = 0;
 			this->PB_Display->TabStop = false;
 			this->PB_Display->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &fm_Main::PB_Display_MouseMove);
 			// 
 			// TS_Test
 			// 
+			this->TS_Test->BackColor = System::Drawing::SystemColors::Control;
+			this->TS_Test->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->TS_Test->Location = System::Drawing::Point(4, 22);
 			this->TS_Test->Name = L"TS_Test";
 			this->TS_Test->Size = System::Drawing::Size(776, 511);
 			this->TS_Test->TabIndex = 2;
 			this->TS_Test->Text = L"Testing & Fun";
-			this->TS_Test->UseVisualStyleBackColor = true;
 			// 
 			// MS_Main
 			// 
@@ -184,9 +206,36 @@ namespace SolarSystem {
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(92, 22);
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &fm_Main::exitToolStripMenuItem_Click);
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->AllowDrop = true;
+			this->dataGridView1->AllowUserToOrderColumns = true;
+			this->dataGridView1->AllowUserToResizeColumns = false;
+			this->dataGridView1->AllowUserToResizeRows = false;
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->Input_Name,
+					this->Input_Mass
+			});
+			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Left;
+			this->dataGridView1->Location = System::Drawing::Point(3, 3);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(243, 503);
+			this->dataGridView1->TabIndex = 0;
+			// 
+			// Input_Name
+			// 
+			this->Input_Name->HeaderText = L"Name";
+			this->Input_Name->Name = L"Input_Name";
+			// 
+			// Input_Mass
+			// 
+			this->Input_Mass->HeaderText = L"Mass";
+			this->Input_Mass->Name = L"Input_Mass";
 			// 
 			// fm_Main
 			// 
@@ -196,10 +245,12 @@ namespace SolarSystem {
 			this->ClientSize = System::Drawing::Size(784, 561);
 			this->Controls->Add(this->TC_Main);
 			this->Controls->Add(this->MS_Main);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->MS_Main;
 			this->Name = L"fm_Main";
 			this->Text = L"Solar System Project";
 			this->TC_Main->ResumeLayout(false);
+			this->TS_Settings->ResumeLayout(false);
 			this->TS_Display->ResumeLayout(false);
 			this->TS_Display->PerformLayout();
 			this->SS_MainDisplay->ResumeLayout(false);
@@ -207,6 +258,7 @@ namespace SolarSystem {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_Display))->EndInit();
 			this->MS_Main->ResumeLayout(false);
 			this->MS_Main->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -221,5 +273,11 @@ private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, Syste
 	Application::Exit();
 }
 
+private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+}
+private: System::Void dataGridView1_CellContentClick_1(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+}
+private: System::Void SG_InputData_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+}
 };
 }
