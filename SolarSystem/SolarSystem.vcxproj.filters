@@ -21,6 +21,9 @@
     <ClCompile Include="MouseEventHandling.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputDataHandling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fm_Main.h">
@@ -29,5 +32,13 @@
     <ClInclude Include="MouseEventHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="InputDataHandling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fm_Main.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -132,12 +132,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fm_Main.cpp" />
+    <ClCompile Include="InputDataHandling.cpp" />
     <ClCompile Include="MouseEventHandling.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fm_Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="InputDataHandling.h" />
     <ClInclude Include="MouseEventHandling.h" />
   </ItemGroup>
   <ItemGroup>
