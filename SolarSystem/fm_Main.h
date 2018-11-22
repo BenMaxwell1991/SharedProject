@@ -2,6 +2,8 @@
 #include "MouseEventHandling.h"
 #include "InputDataHandling.h"
 
+ApplicationData InputData;
+
 namespace SolarSystem {
 
 	using namespace System;
@@ -20,6 +22,7 @@ namespace SolarSystem {
 		fm_Main(void)
 		{
 			InitializeComponent();
+
 			//
 			//TODO: Add the constructor code here
 			//
@@ -50,7 +53,8 @@ namespace SolarSystem {
 	private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
 	private: System::Windows::Forms::StatusStrip^  SS_MainDisplay;
 	private: System::Windows::Forms::ToolStripStatusLabel^  SL_CursorPosition;
-	private: System::Windows::Forms::DataGridView^  dataGridView1;
+	private: System::Windows::Forms::DataGridView^  DG_InputData;
+
 
 
 	private: System::Windows::Forms::GroupBox^  GB_InputDataSaveLoad;
@@ -62,8 +66,24 @@ namespace SolarSystem {
 	private: System::Windows::Forms::Button^  B_SaveData;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Name;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Mass;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Position;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Velocity;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_X;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Y;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Z;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Vx;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Vy;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Vz;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,11 +129,15 @@ namespace SolarSystem {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->B_SaveData = (gcnew System::Windows::Forms::Button());
 			this->B_LoadData = (gcnew System::Windows::Forms::Button());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->DG_InputData = (gcnew System::Windows::Forms::DataGridView());
 			this->Input_Name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Input_Mass = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Input_Position = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Input_Velocity = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Input_X = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Input_Y = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Input_Z = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Input_Vx = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Input_Vy = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Input_Vz = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TS_Display = (gcnew System::Windows::Forms::TabPage());
 			this->SS_MainDisplay = (gcnew System::Windows::Forms::StatusStrip());
 			this->SL_CursorPosition = (gcnew System::Windows::Forms::ToolStripStatusLabel());
@@ -125,7 +149,7 @@ namespace SolarSystem {
 			this->TC_Main->SuspendLayout();
 			this->TS_Settings->SuspendLayout();
 			this->GB_InputDataSaveLoad->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DG_InputData))->BeginInit();
 			this->TS_Display->SuspendLayout();
 			this->SS_MainDisplay->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_Display))->BeginInit();
@@ -149,7 +173,7 @@ namespace SolarSystem {
 			this->TS_Settings->BackColor = System::Drawing::SystemColors::Control;
 			this->TS_Settings->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->TS_Settings->Controls->Add(this->GB_InputDataSaveLoad);
-			this->TS_Settings->Controls->Add(this->dataGridView1);
+			this->TS_Settings->Controls->Add(this->DG_InputData);
 			this->TS_Settings->Location = System::Drawing::Point(4, 22);
 			this->TS_Settings->Name = L"TS_Settings";
 			this->TS_Settings->Padding = System::Windows::Forms::Padding(3);
@@ -211,22 +235,22 @@ namespace SolarSystem {
 			this->B_LoadData->UseVisualStyleBackColor = true;
 			this->B_LoadData->Click += gcnew System::EventHandler(this, &fm_Main::B_LoadData_Click);
 			// 
-			// dataGridView1
+			// DG_InputData
 			// 
-			this->dataGridView1->AllowDrop = true;
-			this->dataGridView1->AllowUserToOrderColumns = true;
-			this->dataGridView1->AllowUserToResizeColumns = false;
-			this->dataGridView1->AllowUserToResizeRows = false;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->DG_InputData->AllowDrop = true;
+			this->DG_InputData->AllowUserToOrderColumns = true;
+			this->DG_InputData->AllowUserToResizeColumns = false;
+			this->DG_InputData->AllowUserToResizeRows = false;
+			this->DG_InputData->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->DG_InputData->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->Input_Name,
-					this->Input_Mass, this->Input_Position, this->Input_Velocity
+					this->Input_Mass, this->Input_X, this->Input_Y, this->Input_Z, this->Input_Vx, this->Input_Vy, this->Input_Vz
 			});
-			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Top;
-			this->dataGridView1->Location = System::Drawing::Point(3, 3);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(768, 393);
-			this->dataGridView1->TabIndex = 0;
+			this->DG_InputData->EditMode = System::Windows::Forms::DataGridViewEditMode::EditProgrammatically;
+			this->DG_InputData->Location = System::Drawing::Point(3, 3);
+			this->DG_InputData->Name = L"DG_InputData";
+			this->DG_InputData->Size = System::Drawing::Size(745, 411);
+			this->DG_InputData->TabIndex = 0;
 			// 
 			// Input_Name
 			// 
@@ -238,15 +262,41 @@ namespace SolarSystem {
 			this->Input_Mass->HeaderText = L"Mass";
 			this->Input_Mass->Name = L"Input_Mass";
 			// 
-			// Input_Position
+			// Input_X
 			// 
-			this->Input_Position->HeaderText = L"Position";
-			this->Input_Position->Name = L"Input_Position";
+			this->Input_X->HeaderText = L"X";
+			this->Input_X->Name = L"Input_X";
+			this->Input_X->Width = 75;
 			// 
-			// Input_Velocity
+			// Input_Y
 			// 
-			this->Input_Velocity->HeaderText = L"Velocity";
-			this->Input_Velocity->Name = L"Input_Velocity";
+			this->Input_Y->HeaderText = L"Y";
+			this->Input_Y->Name = L"Input_Y";
+			this->Input_Y->Width = 75;
+			// 
+			// Input_Z
+			// 
+			this->Input_Z->HeaderText = L"Z";
+			this->Input_Z->Name = L"Input_Z";
+			this->Input_Z->Width = 75;
+			// 
+			// Input_Vx
+			// 
+			this->Input_Vx->HeaderText = L"Vx";
+			this->Input_Vx->Name = L"Input_Vx";
+			this->Input_Vx->Width = 75;
+			// 
+			// Input_Vy
+			// 
+			this->Input_Vy->HeaderText = L"Vy";
+			this->Input_Vy->Name = L"Input_Vy";
+			this->Input_Vy->Width = 75;
+			// 
+			// Input_Vz
+			// 
+			this->Input_Vz->HeaderText = L"Vz";
+			this->Input_Vz->Name = L"Input_Vz";
+			this->Input_Vz->Width = 75;
 			// 
 			// TS_Display
 			// 
@@ -339,7 +389,7 @@ namespace SolarSystem {
 			this->TS_Settings->ResumeLayout(false);
 			this->GB_InputDataSaveLoad->ResumeLayout(false);
 			this->GB_InputDataSaveLoad->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DG_InputData))->EndInit();
 			this->TS_Display->ResumeLayout(false);
 			this->TS_Display->PerformLayout();
 			this->SS_MainDisplay->ResumeLayout(false);
@@ -368,13 +418,13 @@ private: System::Void dataGridView1_CellContentClick_1(System::Object^  sender, 
 private: System::Void SG_InputData_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 }
 private: System::Void B_LoadData_Click(System::Object^  sender, System::EventArgs^  e) {
-	loadData();
+	InputData.initialiseInputData();
 }
 private: System::Void B_SaveData_Click(System::Object^  sender, System::EventArgs^  e) {
-	saveData();
+	InputData.saveData();
 }
 private: System::Void B_ClearData_Click(System::Object^  sender, System::EventArgs^  e) {
-	clearData();
+	InputData.clearData();
 }
 };
 }

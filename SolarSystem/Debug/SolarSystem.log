@@ -1,3 +1,9 @@
 ﻿  InputDataHandling.cpp
+c:\users\benma\workspace\sharedproject\solarsystem\inputdatahandling.cpp(15): warning C4244: '=': conversion from 'unsigned int' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+c:\users\benma\workspace\sharedproject\solarsystem\inputdatahandling.cpp(27): warning C4018: '<': signed/unsigned mismatch
   fm_Main.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   SolarSystem.vcxproj -> C:\Users\benma\Workspace\SharedProject\Debug\SolarSystem.exe
