@@ -1,9 +1,11 @@
 ﻿  InputDataHandling.cpp
-c:\users\benma\workspace\sharedproject\solarsystem\inputdatahandling.cpp(15): warning C4244: '=': conversion from 'unsigned int' to '_Ty', possible loss of data
+c:\users\benma\workspace\sharedproject\solarsystem\inputdatahandling.cpp(18): warning C4244: '=': conversion from 'unsigned int' to '_Ty', possible loss of data
           with
           [
               _Ty=float
           ]
-c:\users\benma\workspace\sharedproject\solarsystem\inputdatahandling.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\benma\workspace\sharedproject\solarsystem\inputdatahandling.cpp(30): warning C4018: '<': signed/unsigned mismatch
+c:\users\benma\workspace\sharedproject\solarsystem\inputdatahandling.cpp(12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: see declaration of 'fopen'
   fm_Main.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   SolarSystem.vcxproj -> C:\Users\benma\Workspace\SharedProject\Debug\SolarSystem.exe

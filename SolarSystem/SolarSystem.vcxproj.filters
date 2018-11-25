@@ -24,6 +24,9 @@
     <ClCompile Include="InputDataHandling.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CelestialBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fm_Main.h">
@@ -35,10 +38,16 @@
     <ClInclude Include="InputDataHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CelestialBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="fm_Main.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Solar_System.dat" />
   </ItemGroup>
 </Project>

@@ -131,11 +131,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CelestialBody.cpp" />
     <ClCompile Include="fm_Main.cpp" />
     <ClCompile Include="InputDataHandling.cpp" />
     <ClCompile Include="MouseEventHandling.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CelestialBody.h" />
     <ClInclude Include="fm_Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -146,6 +148,9 @@
     <EmbeddedResource Include="fm_Main.resx">
       <DependentUpon>fm_Main.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Solar_System.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -23,6 +23,7 @@ namespace SolarSystem {
 		{
 			InitializeComponent();
 
+			InputData.initialiseInputData(DG_InputData);
 			//
 			//TODO: Add the constructor code here
 			//
@@ -72,34 +73,6 @@ namespace SolarSystem {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Vx;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Vy;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Input_Vz;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	protected:
@@ -418,7 +391,7 @@ private: System::Void dataGridView1_CellContentClick_1(System::Object^  sender, 
 private: System::Void SG_InputData_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 }
 private: System::Void B_LoadData_Click(System::Object^  sender, System::EventArgs^  e) {
-	InputData.initialiseInputData();
+	InputData.initialiseInputData(DG_InputData);
 }
 private: System::Void B_SaveData_Click(System::Object^  sender, System::EventArgs^  e) {
 	InputData.saveData();

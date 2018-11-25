@@ -2,28 +2,24 @@
 #include <iostream>
 #include <vector>
 #include <array>
+#include <string>
+#include <list>
+#include <fstream>
+#include "CelestialBody.h"
 
-
-struct CelestialBody {
-	std::string Name;
-	float Mass;
-	std::array<float, 3> Velocity;
-	std::array<float, 3> Acceleration;
-};
 
 class ApplicationData {
 
-	private:
-
-		std::vector<CelestialBody> StellarObjects;
-
 	public:
+		std::vector<CelestialBody> StellarObjects;		
 
 		ApplicationData();
 
-		void initialiseInputData();
 		void loadData();
 		void saveData();
 		void clearData();
+
+		void printInputData();
+		void initialiseInputData(System::Windows::Forms::DataGridView^  aDataGrid);
 };
 

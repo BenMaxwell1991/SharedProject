@@ -1,0 +1,72 @@
+Solar_System:
+	Name = Sun
+    Mass = 1.98855e+30,
+       X = 0.0
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = 0.0
+	  Vz = 0.0
+
+	Name = Mercury
+    Mass = 3.3011e+23,
+       X = 4.6e+10
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = 58540.4
+	  Vz = 7187.9
+
+	Name = Venus
+    Mass = 4.8675e+24,
+       X = 1.0748e+11
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = 35198.3
+	  Vz = 2084.0
+
+	Name = Earth
+    Mass = 5.972e+24,
+       X = 1.4709e+11
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = 30290.0
+	  Vz = 0.0
+
+	Name = Moon
+    Mass = 7.3476e+22,
+       X = 1.4745e+11
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = 31361.7
+	  Vz = 96.5
+
+	Name = Mars
+    Mass = 6.4171e+23,
+       X = 2.0662e+11
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = 30274.2
+	  Vz = 977.9
+
+	Name = Jupiter
+    Mass = 1.898e+27,
+       X = 7.4052e+11
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = 13716.4
+	  Vz = 312.2
+
+	Name = HalleysComet
+    Mass = 2.2e+14,
+       X = 8.7661e+10
+	   Y = 0.0
+	   Z = 0.0
+	  Vx = 0.0
+	  Vy = -51357.0
+	  Vz = 16686.0
