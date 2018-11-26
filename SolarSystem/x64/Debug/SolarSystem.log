@@ -1,6 +1,2 @@
-﻿  CelestialBody.cpp
-  InputDataHandling.cpp
-  fm_Main.cpp
-  Generating Code...
-  CelestialBody.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+﻿  CelestialBody.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   SolarSystem.vcxproj -> C:\Users\benma\Workspace\SharedProject\x64\Debug\SolarSystem.exe
